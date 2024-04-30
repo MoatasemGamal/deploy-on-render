@@ -78,6 +78,10 @@ ALLOWED_EXTENSIONS = {'wav', 'mp3'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+@app.route('/', methods=['GET'])
+def hello():
+    print("hello")
+
 @app.route('/predict', methods=['POST'])
 def predict():
     # Check if a file was uploaded
