@@ -119,7 +119,7 @@ def predict():
     result = emotions1[prediction(filepath)]
 
     # Delete the uploaded file
-    os.remove(filepath)
+    #os.remove(filepath)
 
     return jsonify({'success':True, 'sentiment':result})
 
