@@ -78,6 +78,18 @@ ALLOWED_EXTENSIONS = {'wav', 'mp3'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
+def list_files_in_folder(folder_path):
+    if not os.path.isdir(folder_path):
+        return {"error": f"The folder '{folder_path}' does not exist."}
+    return os.listdir(folder_path)
+
+@app.route('/predict', methods=['GET'])
+def list_files():
+    folder_path = "./uploads"  # Change this to your desired folder path
+    files = list_files_in_folder(folder_path)
+    return jsonify(files)
+
 @app.route('/', methods=['GET'])
 def hello():
     print("hello")
