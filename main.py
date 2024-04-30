@@ -92,7 +92,7 @@ def list_files():
 
 @app.route('/', methods=['GET'])
 def hello():
-    print("hello")
+    return "hello"
 
 @app.route('/predict', methods=['POST'])
 def predict():
